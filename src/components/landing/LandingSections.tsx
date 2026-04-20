@@ -260,67 +260,155 @@ function ServiceZonesSection() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-        {/* Схематичная карта SVG */}
-        <div className="bg-card border border-border rounded-2xl p-6 overflow-hidden relative">
-          <svg viewBox="0 0 420 340" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-            <rect width="420" height="340" fill="hsl(210,35%,8%)" rx="12" />
-            <text x="18" y="220" fill="hsl(210,40%,18%)" fontSize="9" fontFamily="Golos Text, sans-serif">ЧЁРНОЕ МОРЕ</text>
-            <path d="M 0 160 Q 60 145 120 150 Q 180 155 240 148 Q 300 140 360 145 Q 400 148 420 150 L 420 340 L 0 340 Z"
-                  fill="hsl(210,30%,12%)" opacity="0.6" />
-            <path d="M 0 0 L 0 80 Q 30 60 60 70 Q 100 50 140 65 Q 180 45 220 60 Q 260 40 300 55 Q 340 35 380 50 L 420 45 L 420 0 Z"
-                  fill="hsl(130,15%,12%)" />
-            <text x="160" y="40" fill="hsl(130,20%,28%)" fontSize="8" fontFamily="Golos Text, sans-serif">КАВКАЗСКИЕ ГОРЫ</text>
-            <path d="M 0 80 Q 60 90 120 85 Q 180 80 240 82 Q 300 78 360 83 Q 395 86 420 85 L 420 160 Q 380 148 320 152 Q 260 148 200 155 Q 140 158 80 153 Q 40 150 0 158 Z"
-                  fill="hsl(80,12%,14%)" />
-            <path d="M 10 138 Q 80 130 160 132 Q 240 128 320 133 Q 375 136 415 135"
-                  stroke="hsl(38,60%,35%)" strokeWidth="2" fill="none" strokeDasharray="6,3" opacity="0.7"/>
-            <text x="155" y="127" fill="hsl(38,60%,40%)" fontSize="7" fontFamily="Golos Text, sans-serif">трасса А-147</text>
+        {/* Реалистичная карта SVG */}
+        <div className="bg-card border border-border rounded-2xl overflow-hidden relative">
+          <svg viewBox="0 0 480 420" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(210,55%,14%)" />
+                <stop offset="100%" stopColor="hsl(215,60%,9%)" />
+              </linearGradient>
+              <linearGradient id="mountainGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(150,12%,20%)" />
+                <stop offset="100%" stopColor="hsl(140,10%,13%)" />
+              </linearGradient>
+              <linearGradient id="landGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(100,8%,18%)" />
+                <stop offset="100%" stopColor="hsl(90,7%,14%)" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
 
-            {/* СОЧИ */}
-            <circle cx="190" cy="142" r="22" fill="hsl(38,92%,50%)" opacity="0.18" />
-            <circle cx="190" cy="142" r="6" fill="hsl(38,92%,50%)" />
-            <text x="190" y="125" fill="hsl(38,92%,65%)" fontSize="11" fontFamily="Oswald, sans-serif" fontWeight="700" textAnchor="middle">СОЧИ</text>
-            <text x="190" y="175" fill="hsl(38,60%,45%)" fontSize="7.5" fontFamily="Golos Text, sans-serif" textAnchor="middle">центр</text>
+            {/* Фон — море */}
+            <rect width="480" height="420" fill="url(#seaGrad)" />
 
-            {/* АДЛЕР */}
-            <circle cx="300" cy="148" r="18" fill="hsl(200,80%,50%)" opacity="0.13" />
-            <circle cx="300" cy="148" r="5" fill="hsl(200,80%,60%)" />
-            <text x="300" y="132" fill="hsl(200,70%,65%)" fontSize="10" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">АДЛЕР</text>
-            <text x="300" y="167" fill="hsl(200,50%,45%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~30 мин</text>
+            {/* Текстура моря — волны */}
+            <path d="M 0 310 Q 40 305 80 310 Q 120 315 160 308 Q 200 302 240 308 Q 280 314 320 306 Q 360 298 400 305 Q 440 312 480 306" stroke="hsl(210,40%,20%)" strokeWidth="1" fill="none" opacity="0.5"/>
+            <path d="M 0 330 Q 50 324 100 330 Q 150 336 200 328 Q 250 320 300 327 Q 350 334 400 326 Q 440 320 480 326" stroke="hsl(210,40%,18%)" strokeWidth="1" fill="none" opacity="0.4"/>
+            <path d="M 0 355 Q 60 348 120 355 Q 180 362 240 353 Q 300 344 360 352 Q 420 360 480 352" stroke="hsl(210,40%,17%)" strokeWidth="1" fill="none" opacity="0.35"/>
+            <text x="60" y="380" fill="hsl(210,35%,28%)" fontSize="11" fontFamily="Golos Text, sans-serif" letterSpacing="3" opacity="0.8">Ч Ё Р Н О Е   М О Р Е</text>
 
-            {/* ХОСТА */}
-            <circle cx="245" cy="144" r="14" fill="hsl(160,70%,45%)" opacity="0.13" />
-            <circle cx="245" cy="144" r="4" fill="hsl(160,70%,55%)" />
-            <text x="245" y="130" fill="hsl(160,60%,55%)" fontSize="9.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ХОСТА</text>
-            <text x="245" y="161" fill="hsl(160,40%,40%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~20 мин</text>
+            {/* Горы — задний план */}
+            <path d="M -10 0 L 30 55 L 70 20 L 110 65 L 155 15 L 195 70 L 240 10 L 285 60 L 330 5 L 370 50 L 415 8 L 460 45 L 490 10 L 490 0 Z"
+                  fill="hsl(150,10%,12%)" opacity="0.9"/>
+            {/* Горы — передний план с рельефом */}
+            <path d="M -10 80 L 20 45 L 55 75 L 90 30 L 130 68 L 170 28 L 210 58 L 255 18 L 300 55 L 340 22 L 385 60 L 420 28 L 460 62 L 490 38 L 490 110 L -10 110 Z"
+                  fill="url(#mountainGrad)" />
+            {/* Снежные шапки */}
+            <path d="M 90 30 L 100 38 L 110 30 L 120 40 L 130 28" stroke="white" strokeWidth="1.5" fill="none" opacity="0.3"/>
+            <path d="M 245 18 L 258 30 L 268 16 L 278 28" stroke="white" strokeWidth="1.5" fill="none" opacity="0.3"/>
+            <path d="M 338 22 L 348 32 L 358 20 L 368 30" stroke="white" strokeWidth="1.5" fill="none" opacity="0.3"/>
+            <text x="195" y="28" fill="hsl(140,15%,38%)" fontSize="8" fontFamily="Golos Text, sans-serif" letterSpacing="1.5" textAnchor="middle" opacity="0.8">КАВКАЗСКИЕ ГОРЫ</text>
+
+            {/* Суша — основная полоса Сочи */}
+            <path d="M -10 108
+                     C 20 112, 50 115, 90 118
+                     C 130 121, 155 119, 185 122
+                     C 210 124, 235 126, 260 128
+                     C 290 130, 315 132, 345 135
+                     C 375 137, 405 138, 435 136
+                     C 455 135, 470 134, 490 133
+                     L 490 290
+                     C 465 282, 440 270, 415 262
+                     C 385 252, 355 248, 325 252
+                     C 295 256, 270 262, 245 268
+                     C 218 274, 192 280, 162 278
+                     C 132 276, 105 268, 78 262
+                     C 52 256, 28 252, 0 256
+                     L -10 256 Z"
+                  fill="url(#landGrad)" />
+
+            {/* Береговая линия */}
+            <path d="M -10 256
+                     C 28 252, 52 256, 78 262
+                     C 105 268, 132 276, 162 278
+                     C 192 280, 218 274, 245 268
+                     C 270 262, 295 256, 325 252
+                     C 355 248, 385 252, 415 262
+                     C 440 270, 465 282, 490 290"
+                  stroke="hsl(200,50%,35%)" strokeWidth="2" fill="none" opacity="0.8"/>
+
+            {/* Река Мзымта (от гор к Адлеру) */}
+            <path d="M 310 55 Q 318 90 322 120 Q 326 150 330 175 Q 334 200 338 225 Q 342 248 348 258"
+                  stroke="hsl(210,55%,38%)" strokeWidth="2" fill="none" opacity="0.6"/>
+            <text x="352" y="200" fill="hsl(210,45%,42%)" fontSize="7" fontFamily="Golos Text, sans-serif" transform="rotate(85,352,200)" opacity="0.7">р. Мзымта</text>
+
+            {/* Трасса А-147 (федеральная дорога вдоль берега) */}
+            <path d="M 10 232 Q 50 228 90 230 Q 130 232 165 234 Q 200 236 230 238 Q 262 240 295 240 Q 325 240 355 238 Q 385 236 415 234 Q 445 232 475 230"
+                  stroke="hsl(38,70%,42%)" strokeWidth="3" fill="none" opacity="0.85"/>
+            <path d="M 10 232 Q 50 228 90 230 Q 130 232 165 234 Q 200 236 230 238 Q 262 240 295 240 Q 325 240 355 238 Q 385 236 415 234 Q 445 232 475 230"
+                  stroke="hsl(38,90%,55%)" strokeWidth="1" fill="none" strokeDasharray="8,5" opacity="0.5"/>
+            <text x="75" y="224" fill="hsl(38,65%,48%)" fontSize="7.5" fontFamily="Golos Text, sans-serif" opacity="0.9">А-147</text>
+
+            {/* Дорога в горы (к Красной Поляне) */}
+            <path d="M 335 237 Q 330 210 326 185 Q 322 160 316 135 Q 312 112 308 88 Q 304 65 300 45"
+                  stroke="hsl(38,50%,32%)" strokeWidth="1.5" fill="none" strokeDasharray="5,4" opacity="0.6"/>
+
+            {/* Зоны покрытия районов */}
+            <ellipse cx="155" cy="215" rx="52" ry="28" fill="hsl(38,92%,50%)" opacity="0.08"/>
+            <ellipse cx="78" cy="220" rx="42" ry="22" fill="hsl(280,70%,60%)" opacity="0.07"/>
+            <ellipse cx="248" cy="218" rx="38" ry="22" fill="hsl(160,70%,45%)" opacity="0.08"/>
+            <ellipse cx="360" cy="215" rx="55" ry="28" fill="hsl(200,80%,55%)" opacity="0.08"/>
+            <ellipse cx="300" cy="55" rx="30" ry="20" fill="hsl(0,70%,55%)" opacity="0.1"/>
 
             {/* ДАГОМЫС */}
-            <circle cx="130" cy="138" r="16" fill="hsl(280,70%,60%)" opacity="0.13" />
-            <circle cx="130" cy="138" r="4" fill="hsl(280,70%,65%)" />
-            <text x="130" y="122" fill="hsl(280,60%,68%)" fontSize="9.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ДАГОМЫС</text>
-            <text x="130" y="157" fill="hsl(280,40%,45%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~15 мин</text>
+            <circle cx="78" cy="220" r="5" fill="hsl(280,70%,65%)" filter="url(#glow)"/>
+            <circle cx="78" cy="220" r="10" fill="hsl(280,70%,65%)" opacity="0.2"/>
+            <rect x="30" y="195" width="68" height="18" rx="3" fill="hsl(20,10%,8%)" opacity="0.75"/>
+            <text x="64" y="207" fill="hsl(280,70%,72%)" fontSize="9" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ДАГОМЫС</text>
+            <text x="78" y="244" fill="hsl(280,40%,50%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~15 мин</text>
+
+            {/* СОЧИ центр */}
+            <circle cx="155" cy="215" r="7" fill="hsl(38,92%,55%)" filter="url(#glow)"/>
+            <circle cx="155" cy="215" r="14" fill="hsl(38,92%,50%)" opacity="0.2"/>
+            <rect x="118" y="189" width="75" height="18" rx="3" fill="hsl(20,10%,8%)" opacity="0.75"/>
+            <text x="155" y="201" fill="hsl(38,92%,70%)" fontSize="10" fontFamily="Oswald, sans-serif" fontWeight="700" textAnchor="middle">СОЧИ</text>
+            <text x="155" y="238" fill="hsl(38,65%,48%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">от 15 мин</text>
+
+            {/* ХОСТА */}
+            <circle cx="248" cy="218" r="5" fill="hsl(160,70%,55%)" filter="url(#glow)"/>
+            <circle cx="248" cy="218" r="10" fill="hsl(160,70%,45%)" opacity="0.2"/>
+            <rect x="208" y="196" width="62" height="18" rx="3" fill="hsl(20,10%,8%)" opacity="0.75"/>
+            <text x="239" y="208" fill="hsl(160,65%,60%)" fontSize="9.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ХОСТА</text>
+            <text x="248" y="240" fill="hsl(160,45%,42%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~20 мин</text>
+
+            {/* АДЛЕР */}
+            <circle cx="360" cy="215" r="6" fill="hsl(200,80%,62%)" filter="url(#glow)"/>
+            <circle cx="360" cy="215" r="12" fill="hsl(200,80%,55%)" opacity="0.2"/>
+            <rect x="322" y="192" width="60" height="18" rx="3" fill="hsl(20,10%,8%)" opacity="0.75"/>
+            <text x="352" y="204" fill="hsl(200,70%,68%)" fontSize="10" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">АДЛЕР</text>
+            <text x="360" y="238" fill="hsl(200,50%,45%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~30 мин</text>
+
+            {/* Иконка аэропорта Адлера */}
+            <rect x="335" y="248" width="36" height="16" rx="2" fill="hsl(20,10%,10%)" opacity="0.8"/>
+            <text x="353" y="259" fill="hsl(200,50%,55%)" fontSize="7.5" textAnchor="middle" fontFamily="Golos Text, sans-serif">✈ аэропорт</text>
 
             {/* КРАСНАЯ ПОЛЯНА */}
-            <circle cx="240" cy="68" r="20" fill="hsl(0,70%,55%)" opacity="0.15" />
-            <circle cx="240" cy="68" r="5" fill="hsl(0,70%,60%)" />
-            <text x="240" y="52" fill="hsl(0,70%,68%)" fontSize="9" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">КРАСНАЯ</text>
-            <text x="240" y="63" fill="hsl(0,70%,68%)" fontSize="9" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ПОЛЯНА</text>
-            <text x="240" y="90" fill="hsl(0,50%,42%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~45 мин</text>
-
-            <path d="M 240 78 L 240 128 Q 240 135 242 142"
-                  stroke="hsl(0,50%,35%)" strokeWidth="1.5" fill="none" strokeDasharray="4,3" opacity="0.6"/>
-            <path d="M 196 142 Q 218 141 241 143" stroke="hsl(38,60%,30%)" strokeWidth="1" fill="none" opacity="0.5" />
-            <path d="M 249 143 Q 275 145 295 147" stroke="hsl(38,60%,30%)" strokeWidth="1" fill="none" opacity="0.5" />
-            <path d="M 134 138 Q 162 140 184 142" stroke="hsl(38,60%,30%)" strokeWidth="1" fill="none" opacity="0.5" />
+            <circle cx="300" cy="55" r="6" fill="hsl(0,75%,62%)" filter="url(#glow)"/>
+            <circle cx="300" cy="55" r="12" fill="hsl(0,70%,55%)" opacity="0.2"/>
+            <rect x="256" y="68" width="90" height="28" rx="3" fill="hsl(20,10%,8%)" opacity="0.75"/>
+            <text x="301" y="80" fill="hsl(0,70%,68%)" fontSize="8.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">КРАСНАЯ</text>
+            <text x="301" y="91" fill="hsl(0,70%,68%)" fontSize="8.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ПОЛЯНА ~45 мин</text>
 
             {/* Компас */}
-            <g transform="translate(385,20)">
-              <circle cx="0" cy="0" r="14" fill="hsl(20,14%,10%)" stroke="hsl(20,10%,20%)" strokeWidth="1"/>
-              <text x="0" y="-5" fill="hsl(38,92%,50%)" fontSize="9" fontFamily="Oswald,sans-serif" fontWeight="700" textAnchor="middle">С</text>
-              <text x="0" y="12" fill="hsl(40,20%,45%)" fontSize="7" fontFamily="Oswald,sans-serif" textAnchor="middle">Ю</text>
-              <text x="-9" y="4" fill="hsl(40,20%,45%)" fontSize="7" fontFamily="Oswald,sans-serif" textAnchor="middle">З</text>
-              <text x="9" y="4" fill="hsl(40,20%,45%)" fontSize="7" fontFamily="Oswald,sans-serif" textAnchor="middle">В</text>
+            <g transform="translate(446,22)">
+              <circle cx="0" cy="0" r="18" fill="hsl(220,12%,10%)" stroke="hsl(220,10%,25%)" strokeWidth="1"/>
+              <polygon points="0,-11 4,0 0,-4 -4,0" fill="hsl(38,92%,55%)"/>
+              <polygon points="0,11 4,0 0,4 -4,0" fill="hsl(220,10%,40%)"/>
+              <text x="0" y="-13" fill="hsl(38,92%,65%)" fontSize="7" fontFamily="Oswald,sans-serif" fontWeight="700" textAnchor="middle">С</text>
+              <text x="0" y="22" fill="hsl(220,10%,50%)" fontSize="6" fontFamily="Oswald,sans-serif" textAnchor="middle">Ю</text>
+              <text x="-16" y="4" fill="hsl(220,10%,50%)" fontSize="6" fontFamily="Oswald,sans-serif" textAnchor="middle">З</text>
+              <text x="16" y="4" fill="hsl(220,10%,50%)" fontSize="6" fontFamily="Oswald,sans-serif" textAnchor="middle">В</text>
             </g>
+
+            {/* Масштабная линейка */}
+            <line x1="18" y1="400" x2="78" y2="400" stroke="hsl(220,10%,45%)" strokeWidth="1.5"/>
+            <line x1="18" y1="396" x2="18" y2="404" stroke="hsl(220,10%,45%)" strokeWidth="1.5"/>
+            <line x1="78" y1="396" x2="78" y2="404" stroke="hsl(220,10%,45%)" strokeWidth="1.5"/>
+            <text x="48" y="412" fill="hsl(220,10%,45%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~10 км</text>
           </svg>
         </div>
 
