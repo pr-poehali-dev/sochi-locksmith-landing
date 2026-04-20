@@ -9,13 +9,12 @@ export default function SiteHeader() {
 
           {/* Logo */}
           <div className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 rounded-md gold-gradient flex items-center justify-center">
-              <Icon name="KeyRound" size={17} className="text-background" />
-            </div>
-            <div className="leading-tight">
-              <div className="font-oswald text-sm font-semibold tracking-wide text-foreground">ЗАМОК.СОЧИ</div>
-              <div className="text-[10px] text-muted-foreground leading-none">Мастер 24/7</div>
-            </div>
+            <img
+              src="https://thb.tildacdn.com/tild3263-3735-4935-b361-646237366532/-/resize/504x/noroot.png"
+              alt="Вскрытие замков Сочи"
+              className="h-10 w-auto object-contain"
+            />
+            <div className="text-[10px] text-primary font-oswald font-semibold leading-none tracking-wide">24/7</div>
           </div>
 
           {/* Messengers */}

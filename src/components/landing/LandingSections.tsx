@@ -27,9 +27,15 @@ function HeroSection() {
       <div className="hero-overlay absolute inset-0" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 text-primary text-xs font-golos px-3 py-1.5 rounded-full mb-6 animate-fade-up">
-          <Icon name="MapPin" size={12} className="text-primary" />
-          Сочи · Выезд за 15–30 минут
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-6 animate-fade-up">
+          <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 text-primary text-xs font-golos px-3 py-1.5 rounded-full">
+            <Icon name="MapPin" size={12} className="text-primary" />
+            Сочи · Выезд за 15–30 минут
+          </div>
+          <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 text-primary text-xs font-golos px-3 py-1.5 rounded-full">
+            <Icon name="Clock" size={12} className="text-primary" />
+            Работаем 24/7 · Без выходных
+          </div>
         </div>
 
         <h1 className="font-oswald text-4xl sm:text-6xl font-bold tracking-wide text-foreground leading-tight mb-4 animate-fade-up"
@@ -406,7 +412,7 @@ function OrderFormSection() {
           <h2 className="font-oswald text-3xl sm:text-4xl font-bold text-foreground mb-2">
             ОСТАВИТЬ <span className="gold-text">ЗАЯВКУ</span>
           </h2>
-          <p className="font-golos text-muted-foreground text-sm">Перезвоним в течение 2 минут</p>
+          <p className="font-golos text-muted-foreground text-sm">Перезвоним в течение 2 минут · Работаем <strong className="text-primary">24/7</strong></p>
         </div>
 
         {sent ? (

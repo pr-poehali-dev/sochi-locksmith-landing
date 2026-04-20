@@ -1,4 +1,3 @@
-import Icon from "@/components/ui/icon";
 import { PHONE, PHONE_RAW } from "./constants";
 
 export default function SiteFooter() {
@@ -6,10 +5,11 @@ export default function SiteFooter() {
     <footer className="border-t border-border">
       <div className="max-w-5xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md gold-gradient flex items-center justify-center">
-            <Icon name="KeyRound" size={14} className="text-background" />
-          </div>
-          <span className="font-oswald text-sm text-foreground font-semibold">ЗАМОК.СОЧИ</span>
+          <img
+            src="https://thb.tildacdn.com/tild3263-3735-4935-b361-646237366532/-/resize/504x/noroot.png"
+            alt="Вскрытие замков Сочи"
+            className="h-9 w-auto object-contain"
+          />
         </div>
 
         <div className="flex items-center gap-4">
