@@ -20,19 +20,19 @@ export default function SiteHeader() {
           {/* Messengers */}
           <div className="flex items-center gap-2">
             <a href="https://t.me/" target="_blank" rel="noopener"
-               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-primary transition-colors"
+               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
                title="Telegram">
-              <span className="text-sm">✈️</span>
+              <img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" className="w-4 h-4" />
             </a>
             <a href="https://wa.me/" target="_blank" rel="noopener"
-               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-primary transition-colors"
+               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
                title="WhatsApp">
-              <span className="text-sm">💬</span>
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" className="w-4 h-4" />
             </a>
-            <a href="https://ok.ru/" target="_blank" rel="noopener"
-               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-primary transition-colors"
-               title="Одноклассники">
-              <span className="text-sm">👥</span>
+            <a href="https://max.ru/" target="_blank" rel="noopener"
+               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
+               title="Max">
+              <img src="https://cdn.simpleicons.org/max/ffffff" alt="Max" className="w-4 h-4" />
             </a>
           </div>
 

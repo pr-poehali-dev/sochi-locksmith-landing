@@ -14,16 +14,19 @@ export default function SiteFooter() {
 
         <div className="flex items-center gap-4">
           <a href="https://t.me/" target="_blank" rel="noopener"
-             className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors text-base">
-            ✈️
+             className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
+             title="Telegram">
+            <img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" className="w-4 h-4" />
           </a>
           <a href="https://wa.me/" target="_blank" rel="noopener"
-             className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors text-base">
-            💬
+             className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
+             title="WhatsApp">
+            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" className="w-4 h-4" />
           </a>
-          <a href="https://ok.ru/" target="_blank" rel="noopener"
-             className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors text-base">
-            👥
+          <a href="https://max.ru/" target="_blank" rel="noopener"
+             className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
+             title="Max">
+            <img src="https://cdn.simpleicons.org/max/ffffff" alt="Max" className="w-4 h-4" />
           </a>
         </div>
 
