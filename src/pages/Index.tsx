@@ -277,6 +277,183 @@ export default function Index() {
 
       <div className="section-divider mx-8" />
 
+      {/* ─── GUARANTEES ─── */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="font-oswald text-3xl sm:text-4xl font-bold text-foreground mb-2">
+            НАШИ <span className="gold-text">ГАРАНТИИ</span>
+          </h2>
+          <p className="font-golos text-muted-foreground text-sm">Работаем честно — от звонка до результата</p>
+        </div>
+
+        {/* Timeline-схема */}
+        <div className="relative">
+          {/* Соединительная линия (desktop) */}
+          <div className="hidden md:block absolute top-10 left-[calc(10%+24px)] right-[calc(10%+24px)] h-px bg-gradient-to-r from-primary/60 via-primary to-primary/60 z-0" />
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+            {[
+              { step: "01", icon: "Phone",       title: "Цена по телефону",    desc: "Называем стоимость ДО выезда. На месте цена не меняется." },
+              { step: "02", icon: "ShieldCheck", title: "Без повреждений",     desc: "Вскрываем аккуратно — замок и дверь остаются целыми." },
+              { step: "03", icon: "Clock3",      title: "Время — деньги",      desc: "Мастер приедет за 15–30 минут в любое время суток." },
+              { step: "04", icon: "Receipt",     title: "Документы на руки",   desc: "Выдаём чек и акт выполненных работ по вашему запросу." },
+            ].map((g) => (
+              <div key={g.step} className="flex flex-col items-center text-center gap-3">
+                {/* Круг с номером */}
+                <div className="relative">
+                  <div className="w-[52px] h-[52px] rounded-full gold-gradient flex items-center justify-center shadow-lg shadow-primary/25">
+                    <Icon name={g.icon} size={22} className="text-background" />
+                  </div>
+                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-background border border-border text-primary font-oswald font-bold text-[10px] flex items-center justify-center">
+                    {g.step}
+                  </span>
+                </div>
+                <div className="bg-card border border-border rounded-xl p-4 w-full card-hover">
+                  <div className="font-oswald font-semibold text-base text-foreground mb-1">{g.title}</div>
+                  <div className="font-golos text-muted-foreground text-sm leading-relaxed">{g.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Ложный вызов */}
+        <div className="mt-8 bg-card border border-destructive/30 rounded-2xl px-6 py-5 flex gap-4 items-start">
+          <div className="w-10 h-10 rounded-xl bg-destructive/15 flex items-center justify-center shrink-0 mt-0.5">
+            <Icon name="TriangleAlert" size={20} className="text-destructive" />
+          </div>
+          <div>
+            <div className="font-oswald font-semibold text-base text-foreground mb-1">Ложный вызов — 1 000 ₽</div>
+            <p className="font-golos text-sm text-muted-foreground leading-relaxed">
+              Если мастер выехал, а в услуге было отказано по инициативе клиента (дверь открыли самостоятельно, 
+              передумали и т.п.) — выезд оплачивается по тарифу <strong className="text-foreground">1 000 рублей</strong>. 
+              Это компенсация за потраченное время и топливо.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-8" />
+
+      {/* ─── SERVICE ZONES ─── */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-10">
+          <h2 className="font-oswald text-3xl sm:text-4xl font-bold text-foreground mb-2">
+            ЗОНЫ <span className="gold-text">ВЫЕЗДА</span>
+          </h2>
+          <p className="font-golos text-muted-foreground text-sm">Работаем по всему Большому Сочи</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+          {/* Схематичная карта SVG */}
+          <div className="bg-card border border-border rounded-2xl p-6 overflow-hidden relative">
+            <svg viewBox="0 0 420 340" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              {/* Море (фон) */}
+              <rect width="420" height="340" fill="hsl(210,35%,8%)" rx="12" />
+              {/* Волны моря */}
+              <text x="18" y="220" fill="hsl(210,40%,18%)" fontSize="9" fontFamily="Golos Text, sans-serif">ЧЁРНОЕ МОРЕ</text>
+              {/* Береговая линия */}
+              <path d="M 0 160 Q 60 145 120 150 Q 180 155 240 148 Q 300 140 360 145 Q 400 148 420 150 L 420 340 L 0 340 Z"
+                    fill="hsl(210,30%,12%)" opacity="0.6" />
+
+              {/* Горы (фон) */}
+              <path d="M 0 0 L 0 80 Q 30 60 60 70 Q 100 50 140 65 Q 180 45 220 60 Q 260 40 300 55 Q 340 35 380 50 L 420 45 L 420 0 Z"
+                    fill="hsl(130,15%,12%)" />
+              <text x="160" y="40" fill="hsl(130,20%,28%)" fontSize="8" fontFamily="Golos Text, sans-serif">КАВКАЗСКИЕ ГОРЫ</text>
+
+              {/* Полоса суши */}
+              <path d="M 0 80 Q 60 90 120 85 Q 180 80 240 82 Q 300 78 360 83 Q 395 86 420 85 L 420 160 Q 380 148 320 152 Q 260 148 200 155 Q 140 158 80 153 Q 40 150 0 158 Z"
+                    fill="hsl(80,12%,14%)" />
+
+              {/* Дорога А-147 (береговая) */}
+              <path d="M 10 138 Q 80 130 160 132 Q 240 128 320 133 Q 375 136 415 135"
+                    stroke="hsl(38,60%,35%)" strokeWidth="2" fill="none" strokeDasharray="6,3" opacity="0.7"/>
+              <text x="155" y="127" fill="hsl(38,60%,40%)" fontSize="7" fontFamily="Golos Text, sans-serif">трасса А-147</text>
+
+              {/* СОЧИ (центр) */}
+              <circle cx="190" cy="142" r="22" fill="hsl(38,92%,50%)" opacity="0.18" />
+              <circle cx="190" cy="142" r="6" fill="hsl(38,92%,50%)" />
+              <text x="190" y="125" fill="hsl(38,92%,65%)" fontSize="11" fontFamily="Oswald, sans-serif" fontWeight="700" textAnchor="middle">СОЧИ</text>
+              <text x="190" y="175" fill="hsl(38,60%,45%)" fontSize="7.5" fontFamily="Golos Text, sans-serif" textAnchor="middle">центр</text>
+
+              {/* АДЛЕР */}
+              <circle cx="300" cy="148" r="18" fill="hsl(200,80%,50%)" opacity="0.13" />
+              <circle cx="300" cy="148" r="5" fill="hsl(200,80%,60%)" />
+              <text x="300" y="132" fill="hsl(200,70%,65%)" fontSize="10" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">АДЛЕР</text>
+              <text x="300" y="167" fill="hsl(200,50%,45%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~30 мин</text>
+
+              {/* ХОСТА */}
+              <circle cx="245" cy="144" r="14" fill="hsl(160,70%,45%)" opacity="0.13" />
+              <circle cx="245" cy="144" r="4" fill="hsl(160,70%,55%)" />
+              <text x="245" y="130" fill="hsl(160,60%,55%)" fontSize="9.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ХОСТА</text>
+              <text x="245" y="161" fill="hsl(160,40%,40%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~20 мин</text>
+
+              {/* ДАГОМЫС */}
+              <circle cx="130" cy="138" r="16" fill="hsl(280,70%,60%)" opacity="0.13" />
+              <circle cx="130" cy="138" r="4" fill="hsl(280,70%,65%)" />
+              <text x="130" y="122" fill="hsl(280,60%,68%)" fontSize="9.5" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ДАГОМЫС</text>
+              <text x="130" y="157" fill="hsl(280,40%,45%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~15 мин</text>
+
+              {/* КРАСНАЯ ПОЛЯНА — в горах */}
+              <circle cx="240" cy="68" r="20" fill="hsl(0,70%,55%)" opacity="0.15" />
+              <circle cx="240" cy="68" r="5" fill="hsl(0,70%,60%)" />
+              <text x="240" y="52" fill="hsl(0,70%,68%)" fontSize="9" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">КРАСНАЯ</text>
+              <text x="240" y="63" fill="hsl(0,70%,68%)" fontSize="9" fontFamily="Oswald, sans-serif" fontWeight="600" textAnchor="middle">ПОЛЯНА</text>
+              <text x="240" y="90" fill="hsl(0,50%,42%)" fontSize="7" fontFamily="Golos Text, sans-serif" textAnchor="middle">~45 мин</text>
+
+              {/* Дорога к Красной Поляне */}
+              <path d="M 240 78 L 240 128 Q 240 135 242 142"
+                    stroke="hsl(0,50%,35%)" strokeWidth="1.5" fill="none" strokeDasharray="4,3" opacity="0.6"/>
+
+              {/* Соединительные линии */}
+              <path d="M 196 142 Q 218 141 241 143" stroke="hsl(38,60%,30%)" strokeWidth="1" fill="none" opacity="0.5" />
+              <path d="M 249 143 Q 275 145 295 147" stroke="hsl(38,60%,30%)" strokeWidth="1" fill="none" opacity="0.5" />
+              <path d="M 134 138 Q 162 140 184 142" stroke="hsl(38,60%,30%)" strokeWidth="1" fill="none" opacity="0.5" />
+
+              {/* Компас */}
+              <g transform="translate(385,20)">
+                <circle cx="0" cy="0" r="14" fill="hsl(20,14%,10%)" stroke="hsl(20,10%,20%)" strokeWidth="1"/>
+                <text x="0" y="-5" fill="hsl(38,92%,50%)" fontSize="9" fontFamily="Oswald,sans-serif" fontWeight="700" textAnchor="middle">С</text>
+                <text x="0" y="12" fill="hsl(40,20%,45%)" fontSize="7" fontFamily="Oswald,sans-serif" textAnchor="middle">Ю</text>
+                <text x="-9" y="4" fill="hsl(40,20%,45%)" fontSize="7" fontFamily="Oswald,sans-serif" textAnchor="middle">З</text>
+                <text x="9" y="4" fill="hsl(40,20%,45%)" fontSize="7" fontFamily="Oswald,sans-serif" textAnchor="middle">В</text>
+              </g>
+            </svg>
+          </div>
+
+          {/* Список районов */}
+          <div className="flex flex-col gap-3">
+            {[
+              { color: "hsl(38,92%,50%)",   dot: "bg-amber-400",    name: "Сочи (центр)",    time: "от 15 мин", note: "Центральный район, Макензи, Светлана" },
+              { color: "hsl(280,70%,65%)",  dot: "bg-purple-400",   name: "Дагомыс",         time: "~15 мин",   note: "Северная часть Большого Сочи" },
+              { color: "hsl(160,70%,55%)",  dot: "bg-emerald-400",  name: "Хоста",            time: "~20 мин",   note: "Хостинский район, Кудепста" },
+              { color: "hsl(200,80%,60%)",  dot: "bg-sky-400",      name: "Адлер",            time: "~30 мин",   note: "Адлерский район, аэропорт, Имеретинка" },
+              { color: "hsl(0,70%,60%)",    dot: "bg-red-400",      name: "Красная Поляна",  time: "~45 мин",   note: "Горный курорт, Эсто-Садок, Роза Хутор" },
+            ].map((z) => (
+              <div key={z.name} className="bg-card border border-border rounded-xl px-5 py-4 card-hover flex items-center gap-4">
+                <div className={`w-3 h-3 rounded-full shrink-0 ${z.dot}`} />
+                <div className="flex-1">
+                  <div className="font-oswald font-semibold text-base text-foreground">{z.name}</div>
+                  <div className="font-golos text-muted-foreground text-xs">{z.note}</div>
+                </div>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <Icon name="Clock" size={13} className="text-muted-foreground" />
+                  <span className="font-oswald text-sm font-semibold text-primary">{z.time}</span>
+                </div>
+              </div>
+            ))}
+            <div className="bg-primary/10 border border-primary/30 rounded-xl px-5 py-3 flex gap-2 items-center">
+              <Icon name="MapPin" size={16} className="text-primary shrink-0" />
+              <p className="font-golos text-xs text-foreground/70">
+                Не нашли свой район? Позвоните — скорее всего, мы туда выезжаем.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-8" />
+
       {/* ─── REVIEWS ─── */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
@@ -402,10 +579,31 @@ export default function Index() {
           </a>
         </div>
         <div className="border-t border-border">
-          <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-center">
+          <div className="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="font-golos text-xs text-muted-foreground text-center">
               © 2026 Вскрытие замков в Сочи · Работаем круглосуточно
             </p>
+            <button
+              onClick={() => {
+                const el = document.getElementById("privacy");
+                if (el) el.classList.toggle("hidden");
+              }}
+              className="font-golos text-xs text-muted-foreground hover:text-primary transition-colors underline underline-offset-2">
+              Политика конфиденциальности
+            </button>
+          </div>
+          {/* Политика конфиденциальности */}
+          <div id="privacy" className="hidden border-t border-border">
+            <div className="max-w-5xl mx-auto px-4 py-6">
+              <h3 className="font-oswald text-lg font-semibold text-foreground mb-3">Политика конфиденциальности</h3>
+              <div className="font-golos text-xs text-muted-foreground leading-relaxed space-y-2">
+                <p><strong className="text-foreground">1. Сбор данных.</strong> При заполнении формы заявки мы собираем имя и номер телефона исключительно для обратной связи с вами.</p>
+                <p><strong className="text-foreground">2. Использование данных.</strong> Ваши персональные данные используются только для организации выезда мастера и не передаются третьим лицам.</p>
+                <p><strong className="text-foreground">3. Хранение данных.</strong> Данные хранятся на защищённых серверах и удаляются после выполнения заказа по вашему запросу.</p>
+                <p><strong className="text-foreground">4. Согласие.</strong> Нажимая кнопку «Отправить заявку» или совершая звонок, вы даёте согласие на обработку персональных данных в соответствии с ФЗ-152 «О персональных данных».</p>
+                <p><strong className="text-foreground">5. Контакт.</strong> По вопросам обработки персональных данных обращайтесь по телефону {PHONE}.</p>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
