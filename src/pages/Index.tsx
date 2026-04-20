@@ -84,7 +84,7 @@ export default function Index() {
           </div>
 
           {/* Messengers */}
-          <div className="hidden sm:flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <a href="https://t.me/" target="_blank" rel="noopener"
                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-primary transition-colors"
                title="Telegram">
@@ -229,6 +229,49 @@ export default function Index() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <div className="section-divider mx-8" />
+
+      {/* ─── DOCUMENTS ─── */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-10">
+          <h2 className="font-oswald text-3xl sm:text-4xl font-bold text-foreground mb-3">
+            НЕОБХОДИМЫЕ <span className="gold-text">ДОКУМЕНТЫ</span>
+          </h2>
+          <p className="font-golos text-muted-foreground text-sm max-w-xl mx-auto">
+            Для защиты ваших интересов мастер обязан убедиться, что вы являетесь
+            владельцем или имеете право доступа к объекту
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          {[
+            { icon: "IdCard",       title: "Паспорт гражданина РФ",          desc: "Основной документ, удостоверяющий личность. Обязателен в любом случае." },
+            { icon: "FileText",     title: "Документ на квартиру / объект",  desc: "Свидетельство о праве собственности, выписка из ЕГРН или договор аренды." },
+            { icon: "Car",          title: "Документы на автомобиль",         desc: "СТС или ПТС с совпадающим VIN-номером — для вскрытия замка авто." },
+            { icon: "UserCheck",    title: "Доверенность (если не владелец)", desc: "Нотариальная доверенность, если вы действуете от имени собственника." },
+          ].map((doc) => (
+            <div key={doc.title} className="bg-card border border-border rounded-2xl p-5 card-hover flex gap-4 items-start">
+              <div className="w-11 h-11 rounded-xl gold-gradient flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name={doc.icon} size={20} className="text-background" />
+              </div>
+              <div>
+                <div className="font-oswald font-semibold text-base text-foreground mb-1">{doc.title}</div>
+                <div className="font-golos text-muted-foreground text-sm leading-relaxed">{doc.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-primary/10 border border-primary/30 rounded-2xl px-6 py-4 flex gap-3 items-start">
+          <Icon name="AlertTriangle" size={20} className="text-primary shrink-0 mt-0.5" />
+          <p className="font-golos text-sm text-foreground/80 leading-relaxed">
+            <strong className="text-foreground">Важно:</strong> без документов мастер вынужден отказать в работе —
+            это требование закона и гарантия вашей безопасности. Подготовьте документы заранее,
+            чтобы не терять время на месте.
+          </p>
         </div>
       </section>
 
