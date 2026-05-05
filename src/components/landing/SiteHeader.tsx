@@ -14,8 +14,9 @@ const WhatsAppIcon = () => (
 );
 
 const MaxIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 16.875h-2.437l-3.125-4.5-3.125 4.5H6.438l4.374-6.188L6.75 4.5h2.438l2.812 4.125L14.812 4.5H17.25l-4.062 6.187z"/>
+  <svg viewBox="0 0 48 48" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+    <rect width="48" height="48" rx="12" fill="#0077FF"/>
+    <text x="24" y="33" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="22" fill="white" letterSpacing="-1">MAX</text>
   </svg>
 );
 
@@ -40,17 +41,17 @@ export default function SiteHeader() {
 
           {/* Messengers */}
           <div className="flex items-center gap-2">
-            <a href="https://t.me/" target="_blank" rel="noopener"
+            <a href="https://t.me/+79064925692" target="_blank" rel="noopener"
                className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
                title="Telegram">
               <TelegramIcon />
             </a>
-            <a href="https://wa.me/" target="_blank" rel="noopener"
+            <a href="https://wa.me/79064925692" target="_blank" rel="noopener"
                className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
                title="WhatsApp">
               <WhatsAppIcon />
             </a>
-            <a href="https://max.ru/" target="_blank" rel="noopener"
+            <a href="https://max.ru/u/f9LHodD0cOJMD9-lbnglPbDpKx7VE5dGdC-nxKEeo-oDu1DgncZYC6casKg" target="_blank" rel="noopener"
                className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
                title="Max">
               <MaxIcon />
@@ -67,11 +68,23 @@ export default function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile sticky call button */}
-      <div className="fixed bottom-4 left-0 right-0 px-4 z-50 sm:hidden">
+      {/* Mobile sticky bottom bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-background/95 backdrop-blur border-t border-border px-3 py-2 flex items-center gap-2">
+        <a href="https://t.me/+79064925692" target="_blank" rel="noopener"
+           className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity shrink-0">
+          <TelegramIcon />
+        </a>
+        <a href="https://wa.me/79064925692" target="_blank" rel="noopener"
+           className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity shrink-0">
+          <WhatsAppIcon />
+        </a>
+        <a href="https://max.ru/u/f9LHodD0cOJMD9-lbnglPbDpKx7VE5dGdC-nxKEeo-oDu1DgncZYC6casKg" target="_blank" rel="noopener"
+           className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity shrink-0">
+          <MaxIcon />
+        </a>
         <a href={`tel:${PHONE_RAW}`}
-           className="flex items-center justify-center gap-3 gold-gradient text-background font-oswald font-bold text-base py-4 rounded-2xl shadow-2xl pulse-gold">
-          <Icon name="Phone" size={20} className="text-background" />
+           className="flex-1 flex items-center justify-center gap-2 gold-gradient text-background font-oswald font-bold text-base py-3 rounded-2xl shadow-lg pulse-gold">
+          <Icon name="Phone" size={18} className="text-background" />
           Позвонить мастеру
         </a>
       </div>

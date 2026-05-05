@@ -13,8 +13,9 @@ const WhatsAppIcon = () => (
 );
 
 const MaxIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 16.875h-2.437l-3.125-4.5-3.125 4.5H6.438l4.374-6.188L6.75 4.5h2.438l2.812 4.125L14.812 4.5H17.25l-4.062 6.187z"/>
+  <svg viewBox="0 0 48 48" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+    <rect width="48" height="48" rx="12" fill="#0077FF"/>
+    <text x="24" y="33" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="22" fill="white" letterSpacing="-1">MAX</text>
   </svg>
 );
 
@@ -22,7 +23,7 @@ const LOGO_URL = "https://static.tildacdn.com/tild6166-3331-4163-a337-3762393366
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border mb-16 sm:mb-0">
       <div className="max-w-5xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <img
@@ -34,17 +35,17 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="https://t.me/" target="_blank" rel="noopener"
+          <a href="https://t.me/+79064925692" target="_blank" rel="noopener"
              className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
              title="Telegram">
             <TelegramIcon />
           </a>
-          <a href="https://wa.me/" target="_blank" rel="noopener"
+          <a href="https://wa.me/79064925692" target="_blank" rel="noopener"
              className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
              title="WhatsApp">
             <WhatsAppIcon />
           </a>
-          <a href="https://max.ru/" target="_blank" rel="noopener"
+          <a href="https://max.ru/u/f9LHodD0cOJMD9-lbnglPbDpKx7VE5dGdC-nxKEeo-oDu1DgncZYC6casKg" target="_blank" rel="noopener"
              className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:opacity-80 transition-opacity"
              title="Max">
             <MaxIcon />

@@ -484,13 +484,34 @@ function ReviewsSection() {
   );
 }
 
+const SEND_ORDER_URL = "https://functions.poehali.dev/74562836-f355-4bf6-af04-820abf2a319f";
+
 function OrderFormSection() {
   const [form, setForm] = useState({ name: "", phone: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(SEND_ORDER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, phone: form.phone }),
+      });
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setError("Ошибка отправки. Позвоните нам напрямую.");
+      }
+    } catch {
+      setError("Нет соединения. Позвоните нам напрямую.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -536,10 +557,14 @@ function OrderFormSection() {
             </div>
             <button
               type="submit"
-              className="gold-gradient text-background font-oswald font-semibold text-base py-4 rounded-xl mt-1 hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
-              <Icon name="Send" size={17} className="text-background" />
-              Отправить заявку
+              disabled={loading}
+              className="gold-gradient text-background font-oswald font-semibold text-base py-4 rounded-xl mt-1 hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60">
+              <Icon name={loading ? "Loader" : "Send"} size={17} className={`text-background ${loading ? "animate-spin" : ""}`} />
+              {loading ? "Отправляем..." : "Отправить заявку"}
             </button>
+            {error && (
+              <p className="font-golos text-xs text-red-400 text-center">{error}</p>
+            )}
             <p className="font-golos text-xs text-muted-foreground text-center">
               Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
             </p>
