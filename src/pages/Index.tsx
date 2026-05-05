@@ -6,8 +6,10 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader />
-      <LandingSections />
-      <SiteFooter />
+      <div className="pt-16">
+        <LandingSections />
+        <SiteFooter />
+      </div>
     </div>
   );
 }

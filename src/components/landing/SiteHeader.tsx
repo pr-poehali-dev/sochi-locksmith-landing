@@ -25,7 +25,7 @@ const LOGO_URL = "https://static.tildacdn.com/tild6166-3331-4163-a337-3762393366
 export default function SiteHeader() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
 
           {/* Logo */}
