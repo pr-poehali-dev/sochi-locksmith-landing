@@ -52,15 +52,18 @@ export default function SiteFooter() {
           </a>
         </div>
 
-        <a href={`tel:${PHONE_RAW}`} className="font-oswald font-semibold text-primary text-sm">
-          {PHONE}
-        </a>
+        <div className="flex flex-col items-center sm:items-end gap-1">
+          <a href={`tel:${PHONE_RAW}`} className="font-oswald font-semibold text-primary text-sm">
+            {PHONE}
+          </a>
+          <p className="font-golos text-xs text-muted-foreground">г. Сочи, ул. Платановая, д. 15</p>
+        </div>
       </div>
 
       <div className="border-t border-border">
         <div className="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="font-golos text-xs text-muted-foreground text-center">
-            © 2026 Вскрытие замков в Сочи · Работаем круглосуточно
+            © 2026 Атанасов К.В. ИНН 261203286304. Все права защищены.
           </p>
           <button
             onClick={() => {
