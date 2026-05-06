@@ -1,5 +1,5 @@
 export const PHONE = "+7 (988) 154-63-89";
-export const PHONE_RAW = "79881546389";
+export const PHONE_RAW = "+79881546389";
 
 export const services = [
   { icon: "DoorOpen", label: "Дверной замок",   price: "от 1 900 ₽", desc: "Входные, межкомнатные, металлические двери" },
